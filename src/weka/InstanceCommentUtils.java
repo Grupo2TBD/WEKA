@@ -26,6 +26,7 @@ public class InstanceCommentUtils {
 
         classAttr.addElement(CommentLabel.POSITIVO.name());
         classAttr.addElement(CommentLabel.NEGATIVO.name());
+        classAttr.addElement(CommentLabel.NEUTRAL.name());
 
         Attribute classAttribute = new Attribute("@@class@@", classAttr);
 
@@ -70,6 +71,7 @@ public class InstanceCommentUtils {
 
         classAttr.addElement(CommentLabel.POSITIVO.name());
         classAttr.addElement(CommentLabel.NEGATIVO.name());
+        classAttr.addElement(CommentLabel.NEUTRAL.name());
 
         Attribute classAttribute = new Attribute("@@class@@", classAttr);
 

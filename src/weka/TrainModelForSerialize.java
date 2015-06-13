@@ -33,6 +33,7 @@ public class TrainModelForSerialize {
         
         List<String> commentPositivos = FileUtils.readLines(new File("C:/Users/Fernando/Desktop/weka/positivo2.txt"));
         List<String> commentNegativos = FileUtils.readLines(new File("C:/Users/Fernando/Desktop/weka/negativo2.txt"));
+        List<String> commentNeutrales = FileUtils.readLines(new File("C:/Users/Fernando/Desktop/weka/neutral.txt"));
         
         List<InstanceComment> comments = Lists.newArrayList();	
         
@@ -58,6 +59,14 @@ public class TrainModelForSerialize {
             comments.add(instanceComment);
         }
         
+        //se procesan los comentarios neutrales
+        for (String comment : commentNeutrales) {
+            String commentNormalized = normalizer.normalizeComment(comment);
+            List<String> tokenizedComment = tokenizer.getStrings(commentNormalized);
+            tokenizedComment = stopWordsRemoval.removeStopwords(tokenizedComment);
+            InstanceComment instanceComment = new InstanceComment(comment, tokenizedComment, CommentLabel.NEUTRAL);
+            comments.add(instanceComment);
+        }
 
         // Obtención de los atributos, que son las palabras presentes en un comentario
         Set<String> vocabulary = new HashSet<>();

@@ -24,18 +24,22 @@ public class main {
         if (opc.equals("si")) {
             tmfs.train();
         } else {
-            cs = new CommentClassifier("C:/Users/Fernando/Desktop/weka/svm.model", "C:/Users/Fernando/Desktop/weka/attrs.dat",tokenizer, 
+            cs = new CommentClassifier("C:/Users/Fernando/Desktop/weka/svm.model", "C:/Users/Fernando/Desktop/weka/attrs.dat", tokenizer,
                     stopWordsRemoval);
             comment = "no me gusto la foto, esperaba mas de ti";
             classif = cs.classify(comment);
 
             if (classif == 0.0) {
                 System.out.println("POSITIVO");
-            }
-            if (classif == 1.0) {
+            } else {
+                if (classif == 1.0) {
 
-                System.out.println("NEGATIVO");
+                    System.out.println("NEGATIVO");
+                } else {
+                    System.out.println("NEUTRAL");
+                }
             }
+
         }
         //negativos
         //"no me gusto la foto, esperaba mas de ti"

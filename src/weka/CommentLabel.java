@@ -6,5 +6,6 @@ public enum CommentLabel {
     
 
     POSITIVO,
-    NEGATIVO;
+    NEGATIVO,
+    NEUTRAL;
 }
